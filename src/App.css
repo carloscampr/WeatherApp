@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-image: url("https://www.lifeder.com/wp-content/uploads/2021/10/clima-tipos-696x288.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.App{
+    margin-top: 150px;  
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.WeatherList{
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.WeatherCard h1{
+    font-size: 50px;
+    color: rgb(2, 28, 146);
+}
+.WeatherCard h2{
+    color: rgb(228, 208, 29);
+}
+.WeatherCard h1, h2{
+    border-bottom: 1px solid black;
+}
+.WeatherList li{
+    width: 180px;
+    background-color: rgba(20, 27, 36, 0.5);
+    border-radius: 10px;
+}
+.WeatherList span{
+    color: rgb(228, 208, 29);
+}
+.WeatherCard{
+    width: 500px;
+    background-color: rgba(25, 112, 212, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 5px 0;
+}
+.WeatherCard button{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(20, 27, 36);
+    color:  rgb(209, 197, 197);
+   
+}
+.WeatherCard button:hover{
+    cursor: pointer;
+    color: rgba(25, 112, 212);
+    background-color: rgba(20, 27, 36, 0.5)
+}
+.WeatherCard p{
+    font-size: 30px;
+    color: rgb(151, 34, 13);
+}
