@@ -11,7 +11,7 @@ body{
     height: 100vh;
 }
 .App{
-    margin-top: 150px;  
+    margin-top: 50px;  
     width: 100%;
     display: flex;
     justify-content: center;
@@ -57,7 +57,7 @@ body{
 }
 .WeatherCard button{
     width: 100px;
-    height: 50px;
+    height: 30px;
     border-radius: 10px;
     background-color: rgb(20, 27, 36);
     color:  rgb(209, 197, 197);
@@ -71,4 +71,9 @@ body{
 .WeatherCard p{
     font-size: 30px;
     color: rgb(151, 34, 13);
+}
+.WeatherCard input{
+    border-radius: 5px;
+    border-style: none;
+    text-align: center;
 }

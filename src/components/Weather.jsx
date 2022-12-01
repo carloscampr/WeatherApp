@@ -1,19 +1,23 @@
 import React from 'react'
+import { useState } from 'react';
 
-
-const Weather = ({weather, temperature, isCelsius, changeUnitTemp}) =>{
-    console.log(weather);
-    //const tempC= ((weather.main.temp)- 273.15);
-    console.log(weather.main.temp);
+const Weather = ({weather, temperature, isCelsius, changeUnitTemp, newCallAPISearch}) =>{
+    //console.log(weather);
+    const [place, setPlace]= useState("")
+    const tempC= ((weather.main.temp)- 273.15);
+    const handleChangePlace = (e) =>{
+        setPlace(e.target.value);
+        //console.log(e.target.value);
+    }
+    //console.log(weather.main.temp);
     //console.log(tempC);
-    console.log(weather.weather[0].description)
     return(
         <article className='WeatherCard'>
             <h1>Weather App</h1>
             <h2>{`${weather.name}, ${weather.sys.country}`}</h2>
             <section>
                 <div>
-                    <img src={`http://openweathermap.org/img/wn/${weather.weather[0]?.icon}@4x.png`} alt="logo"/>
+                    <img src={`https://openweathermap.org/img/wn/${weather.weather[0]?.icon}@4x.png`} alt="logo"/>
                 </div>
                 <ul className='WeatherList'>
                     <li>{weather.weather[0].description}</li>
@@ -24,6 +28,8 @@ const Weather = ({weather, temperature, isCelsius, changeUnitTemp}) =>{
             </section>
             <p>{isCelsius ? `${temperature.celsius} ºC` : `${temperature.fahrenheit} ºF`}</p>
             <button onClick={changeUnitTemp}>Degrees °F/°C</button>
+            <input type="text" value={place} onChange={handleChangePlace}/>
+            <button onClick={()=>newCallAPISearch(place)}>Search</button>
         </article>
     )
 }

@@ -9,6 +9,7 @@ function App() {
   const [weather, setWeather]=useState();
   const [temperature, setTemperature] = useState();
   const [isCelsius, setCelsius] = useState(true);
+  
   //We get the coords here
   const success = (pos)=>{
     const newCoords = {
@@ -16,6 +17,13 @@ function App() {
       lon: pos.coords.longitude
     }
     setCoords(newCoords)
+  }
+  const newCallAPISearch = (cityNames)=>{
+    const APIKey = "c934cc0e9364820517c3d83a76019b25";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityNames}&appid=${APIKey}`
+    axios.get(url)
+      .then(res =>setWeather(res.data))
+      .catch(err=> alert("Not found this place"))
   }
   const changeUnitTemp = () =>{
     setCelsius(!isCelsius)
@@ -42,13 +50,13 @@ function App() {
       .catch(err=>console.log(err))
     }
   },[coords])
-  console.log(temperature);
+  //console.log(temperature);
 
-  console.log(weather)
+  //console.log(weather)
   return (
     <div className="App">
       {
-        weather ? <Weather weather={weather} temperature={temperature} changeUnitTemp={changeUnitTemp} isCelsius={isCelsius} /> : <p>loading...</p>
+        weather ? <Weather weather={weather} temperature={temperature} changeUnitTemp={changeUnitTemp} isCelsius={isCelsius} newCallAPISearch = {newCallAPISearch}/> : <p>loading...</p>
       }
     </div>
   )
